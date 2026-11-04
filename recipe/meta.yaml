@@ -1,13 +1,13 @@
 {% set name = "microfilm" %}
-{% set version = "0.2.1" %}
+{% set version = "0.3.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/microfilm-{{ version }}.tar.gz
-  sha256: 577cea475dac691c5bc640eac51ad86d159ac0b8005fd1b06117649ac0aaf01f
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/microfilm-{{ version }}.tar.gz
+  sha256: f06a458234a8bc5fec61eacf7523afbccde660e55b940deea58924a27a7b01ad
 
 build:
   noarch: python
@@ -17,10 +17,11 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.7
+    - python {{ python_min }}
+    - setuptools >=42.0.0
     - setuptools-scm
   run:
-    - aicsimageio
+    - cmap
     - h5py
     - imageio
     - imageio-ffmpeg
@@ -30,10 +31,12 @@ requirements:
     - natsort
     - nd2reader
     - numpy
-    - python >=3.7
+    - python >={{ python_min }}
     - scikit-image
     - tifffile
     - xarray
+    - bioio
+    - bioio-tifffile
 
 test:
   imports:
@@ -43,6 +46,7 @@ test:
     # - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/guiwitz/microfilm
