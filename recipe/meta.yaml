@@ -1,5 +1,5 @@
 {% set name = "microfilm" %}
-{% set version = "0.3.0" %}
+{% set version = "0.4.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/microfilm-{{ version }}.tar.gz
-  sha256: f06a458234a8bc5fec61eacf7523afbccde660e55b940deea58924a27a7b01ad
+  sha256: 6c020a2f8a320c8920d1a22baf3563dcb6762fe9e69d54afcf59547c003464bc
 
 build:
   noarch: python
@@ -18,7 +18,7 @@ requirements:
   host:
     - pip
     - python {{ python_min }}
-    - setuptools >=42.0.0
+    - setuptools >=77.0.0
     - setuptools-scm
   run:
     - cmap
